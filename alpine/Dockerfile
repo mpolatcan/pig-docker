@@ -19,6 +19,7 @@ RUN wget ${PIG_DOWNLOAD_LINK} && \
     rm -r /usr/local/pig-${PIG_VERSION} && \
     rm pig-${PIG_VERSION}.tar.gz && \
     chown -R hduser:hadoop ${PIG_HOME} && \
-    chmod -R 777 ${PIG_HOME}
+    chmod -R 777 ${PIG_HOME} && \
+    echo "PATH=$PATH:$PIG_HOME/bin" >> /etc/profile
 
 ENTRYPOINT ["./entrypoint.sh"]
