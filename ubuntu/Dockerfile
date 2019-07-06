@@ -20,5 +20,4 @@ RUN wget ${PIG_DOWNLOAD_LINK} && \
     chmod -R 777 ${PIG_HOME} && \
     echo "PATH=$PATH:$PIG_HOME/bin" >> /etc/environment
 
-ENTRYPOINT ["./hadoop_entrypoint.sh"]
-CMD ["tail","-f","/dev/null"]
+ENTRYPOINT ["./hadoop_entrypoint.sh","hadoop"]
