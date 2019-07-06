@@ -29,7 +29,7 @@ DISTS=(
 function build_image() {
     sudo docker build -q -t mpolatcan/pig:$1-$2-hadoop-$3 --build-arg PIG_VERSION=$2 --build-arg HADOOP_VERSION=$3 ./$1/
 	sudo docker push mpolatcan/pig:$1-$2-hadoop-$3
-	sudo docker rmi mpolatcan/pig:$1-$2-hadoop-$3
+	sudo docker rmi $(sudo docker images -q)
 }
 
 for PIG_VERSION in ${PIG_VERSIONS[@]}; do
