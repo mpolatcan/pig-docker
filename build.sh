@@ -3,11 +3,8 @@
 HADOOP_VERSIONS=(
     "3.2.0"
     "3.1.2"
-    "3.1.1"
     "3.0.3"
-    "3.0.2"
     "2.9.1"
-    "2.9.0"
     "2.8.4"
     "2.7.6"
     "2.6.5"
@@ -29,7 +26,7 @@ DISTS=(
 function build_image() {
     sudo docker build -q -t mpolatcan/pig:$1-$2-hadoop-$3 --build-arg PIG_VERSION=$2 --build-arg HADOOP_VERSION=$3 ./$1/
 	sudo docker push mpolatcan/pig:$1-$2-hadoop-$3
-	sudo docker rmi $(sudo docker images -q)
+	sudo docker rmi mpolatcan/pig:$1-$2-hadoop-$3
 }
 
 for PIG_VERSION in ${PIG_VERSIONS[@]}; do
