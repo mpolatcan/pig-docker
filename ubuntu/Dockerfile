@@ -5,8 +5,6 @@ FROM mpolatcan/hadoop:ubuntu-${HADOOP_VERSION}
 ARG PIG_VERSION=0.17.0
 ARG PIG_DOWNLOAD_LINK="http://www-eu.apache.org/dist/pig/pig-${PIG_VERSION}/pig-${PIG_VERSION}.tar.gz"
 
-# TODO Configurations will be added
-
 ENV PIG_HOME "/usr/local/pig"
 ENV PATH $PATH:$PIG_HOME/bin
 
@@ -22,4 +20,5 @@ RUN wget ${PIG_DOWNLOAD_LINK} && \
     chmod -R 777 ${PIG_HOME} && \
     echo "PATH=$PATH:$PIG_HOME/bin" >> /etc/environment
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./hadoop_entrypoint.sh"]
+CMD ["tail","-f","/dev/null"]
