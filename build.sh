@@ -18,7 +18,6 @@ JAVA_VERSIONS=(
     "9"
     "10"
     "11"
-    "12"
 )
 
 # $1: PIG_VERSION
