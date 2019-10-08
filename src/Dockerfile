@@ -1,6 +1,7 @@
 ARG HADOOP_VERSION=2.9.0
+ARG JAVA_VERSION=8
 
-FROM mpolatcan/hadoop:ubuntu-${HADOOP_VERSION}
+FROM mpolatcan/hadoop:${HADOOP_VERSION}-java${JAVA_VERSION}
 
 ARG PIG_VERSION=0.17.0
 ARG PIG_DOWNLOAD_LINK="http://www-eu.apache.org/dist/pig/pig-${PIG_VERSION}/pig-${PIG_VERSION}.tar.gz"
