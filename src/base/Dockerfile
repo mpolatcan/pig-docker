@@ -93,8 +93,9 @@ ENV PIG_CONF_DIR="${PIG_HOME}/conf" \
 	UDF_IMPORT_LIST="NULL" \
 	VERBOSE="false"
 
+ADD entrypoint.sh ${HDUSER_HOME}/pig_entrypoint.sh
 ADD config_loader.sh ${HDUSER_HOME}/pig_config_loader.sh
 
 USER root
 RUN mkdir -p ${PIG_HOME} && \
-    chmod +x ${HDUSER_HOME}/pig_config_loader.sh
+    chmod +x ${HDUSER_HOME}/pig_config_loader.sh ${HDUSER_HOME}/pig_entrypoint.sh

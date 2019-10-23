@@ -6,7 +6,7 @@ function load_config() {
   fi
 }
 
-echo "" > "${PIG_CONF_DIR}/pig.properties"
+printf "" > "${PIG_CONF_DIR}/pig.properties"
 load_config "aggregate.warning" ${AGGREGATE_WARNING} "pig.properties"
 load_config "brief" ${BRIEF} "pig.properties"
 load_config "debug" ${DEBUG} "pig.properties"

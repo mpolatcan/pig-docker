@@ -19,4 +19,4 @@ RUN wget ${PIG_DOWNLOAD_LINK} && \
     chown -R hduser:hadoop ${PIG_HOME}
 
 USER hduser
-ENTRYPOINT ["./hadoop_entrypoint.sh","hadoop"]
+ENTRYPOINT ["./pig_entrypoint.sh","pig"]
