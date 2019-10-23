@@ -24,7 +24,7 @@ function build_base_image() {
 }
 
 function build_image() {
-  sudo docker build -q -t mpolatcan/pig:$1-hadoop-$2-java$3 --build-arg PIG_VERSION=$1 --build-arg HADOOP_VERSION=$2 --build-arg JAVA_VERSION=$3 ./src/
+  sudo docker build -q -t mpolatcan/pig:$1-hadoop-$2-java$3 --build-arg PIG_VERSION=$1 --build-arg HADOOP_VERSION=$2 --build-arg JAVA_VERSION=$3 ./src/setup/
 	sudo docker push mpolatcan/pig:$1-hadoop-$2-java$3
 	sudo docker rmi mpolatcan/pig:$1-hadoop-$2-java$3
 }
