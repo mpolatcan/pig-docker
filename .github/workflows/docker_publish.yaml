@@ -1,0 +1,43 @@
+name: Pig Docker Image Publish
+
+on: [push]
+
+jobs:
+  build-base-image:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repository: [pig]
+        java_version: [8]
+        hadoop_version: [3.2.1, 3.1.3, 2.9.2, 2.8.5, 2.7.7]
+    steps:
+      - uses: actions/checkout@v1
+      - run: echo ${{secrets.DOCKER_PASSWORD}} | docker login -u ${{secrets.DOCKER_USERNAME}} --password-stdin
+      - run: docker build -q
+           -t ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:base-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
+           --build-arg HADOOP_VERSION=${{matrix.hadoop_version}}
+           --build-arg JAVA_VERSION=${{matrix.java_version}}
+           src/base
+      - run: docker push ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:base-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
+      - run: docker rmi ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:base-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
+
+  build-pig-image:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repository: [pig]
+        java_version: [8]
+        pig_version: [0.17.0, 0.16.0]
+        hadoop_version: [3.2.1, 3.1.3, 2.9.2, 2.8.5, 2.7.7]
+    needs: build-base-image
+    steps:
+      - uses: actions/checkout@v1
+      - run: echo ${{secrets.DOCKER_PASSWORD}} | docker login -u ${{secrets.DOCKER_USERNAME}} --password-stdin
+      - run: docker build -q
+          -t ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.pig_version}}-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
+          --build-arg PIG_VERSION=${{matrix.pig_version}}
+          --build-arg HADOOP_VERSION=${{matrix.hadoop_version}}
+          --build-arg JAVA_VERSION=${{matrix.java_version}}
+          src/setup
+      - run: docker push ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.pig_version}}-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
+      - run: docker rmi ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.pig_version}}-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
