@@ -98,4 +98,4 @@ ADD config_loader.sh ${HDUSER_HOME}/pig_config_loader.sh
 
 USER root
 RUN mkdir -p ${PIG_HOME} && \
-    chmod +x ${HDUSER_HOME}/pig_config_loader.sh ${HDUSER_HOME}/pig_entrypoint.sh
+    chmod +x pig_config_loader.sh pig_entrypoint.sh
