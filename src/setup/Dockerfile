@@ -7,7 +7,7 @@ MAINTAINER Mutlu Polatcan <mutlupolatcan@gmail.com>
 
 ARG PIG_VERSION=0.17.0
 ARG PIG_ZIP_FOLDER_NAME="pig-${PIG_VERSION}"
-ARG PIG_DOWNLOAD_LINK="http://www-eu.apache.org/dist/pig/pig-${PIG_VERSION}/${PIG_ZIP_FOLDER_NAME}.tar.gz"
+ARG PIG_DOWNLOAD_LINK="http://downloads.apache.org/pig/pig-${PIG_VERSION}/${PIG_ZIP_FOLDER_NAME}.tar.gz"
 
 MAINTAINER Mutlu Polatcan <mutlupolatcan@gmail.com>
 

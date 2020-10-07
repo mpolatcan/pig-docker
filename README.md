@@ -1,5 +1,8 @@
 # pig-docker
 
-![](https://github.com/mpolatcan/pig-docker/workflows/Pig%20Docker%20Image%20Publish/badge.svg)
+![](https://github.com/mpolatcan/pig-docker/workflows/pig-docker/badge.svg)
 
-Coming soon...
+# To Do
+
+- Documentation
+- Kubernetes Deployment
