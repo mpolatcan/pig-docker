@@ -1,0 +1,105 @@
+aggregate.warning: "true"
+brief: "false"
+debug: "INFO"
+exectype: "mapreduce"
+file: "NULL"
+hcat.bin: "NULL"
+jar: "NULL"
+log4jconf: ""
+opt:
+  multiquery: "true"
+  fetch: "true"
+pig:
+  cachedbag.memusage: "0.2"
+  skewedjoin.reduce.memusage: "0.3"
+  exec:
+    nocombiner:
+      "": "false"
+      reducer: "auto"
+    mapPartAgg:
+      "": "false"
+      minReduction: "10"
+    reducers:
+      bytes.per.reducer: "1000000000"
+      max: "999"
+    reducer.estimator:
+      "": "NULL"
+      arg: "NULL"
+  tmpfilecompression:
+    "": "NULL"
+    codec: "gzip"
+    storage: "tfile"
+  noSplitCombination: "NULL"
+  additional.jars.uris: "NULL"
+  datetime.default.tz: "NULL"
+  artifacts.download.location: "~/.groovy/grapes"
+  user.cache:
+    enabled: "false"
+    location: "/tmp"
+    replication: "10"
+  spill:
+    size.threshold: "5000000"
+    gc.activation.size: "NULL"
+    memory.usage.threshold.fraction: "0.7"
+    collection.threshold.fraction: "0.7"
+    unused.memory.threshold.size: "367001600"
+  join.replicated.max.bytes: "1000000000"
+  schematuple:
+    "": "false"
+    udf: "false"
+    load: "false"
+    fr_join: "false"
+    merge_join: "false"
+  output:
+    lazy: "false"
+    committer.recovery.support: "true"
+  tez:
+    auto.parallelism: "true"
+    grace.parallelism: "true"
+    opt.union:
+      unsupported.storefuncs: "org.apache.hcatalog.pig.HCatStorer,org.apache.hive.hcatalog.pig.HCatStorer"
+      supported.storefuncs: "NULL"
+    configure.am.memory: "false"
+  pretty.print.schema: "false"
+  udf.profile:
+    "": "false"
+    frequency: "100"
+  load.default.statements: "NULL"
+  logfile: "NULL"
+  stats.output.size.reader:
+    "": "NULL"
+    unsupported: "NULL"
+  streaming:
+    environment: "NULL"
+    ship.files: "NULL"
+    cache.files: "NULL"
+    udf.python.command: "python"
+  disable.counter: "true"
+  script.max.size: "10240"
+  error-handling:
+    enabled: "false"
+    min.error.records: "0"
+    error.threshold: "0.0f"
+  random.sampler.sample.size: "100"
+  maxCombinedSplitSize: "NULL"
+  auto.local:
+    enabled: "false"
+    input.maxbytes: "100000000"
+  blacklist: "NULL"
+  whitelist: "NULL"
+  notifiaction.listener:
+    "": "NULL"
+    arg: "NULL"
+  default:
+    load.func: "NULL"
+    store.func: "NULL"
+  ats.enabled: "true"
+  sql.type: "hcat"
+  location.check.strict: "false"
+  delete.temp.files: "true"
+  bzip.use.hadoop.inputformat: "true"
+  use.overriden.hadoop.configs: "false"
+  sort.readonce.loadfuncs: "NULL"
+stop.on.failure: "false"
+udf.import.list: "NULL"
+verbose: "false"
