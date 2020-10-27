@@ -13,5 +13,3 @@ config_loader_sh_template: |
 config_files:
   - path: pig_configs/pig-properties.yaml
     filename: pig.properties
-
-output_dir: ../../base
